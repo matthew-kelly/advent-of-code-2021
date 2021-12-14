@@ -7,7 +7,7 @@ const vectorTable = {
 const run1 = (input) => {
   let position = [0, 0]; // depth, horizontal
   input.forEach((command) => {
-    const split = command.split(" ");
+    const split = command.split(' ');
     const movement = vectorTable[split[0]].map((x) => x * parseInt(split[1]));
     position = [position[0] + movement[0], position[1] + movement[1]];
   });
@@ -20,13 +20,17 @@ const run2 = (input) => {
   // else, depth = forward * aim
   let position = [0, 0, 0]; // depth, horizontal, aim
   input.forEach((command) => {
-    const split = command.split(" ");
+    const split = command.split(' ');
     const movement = vectorTable[split[0]].map((x) => x * parseInt(split[1]));
     // execute horizontal movement & aim adjustment
-    let newPosition = [position[0], position[1] + movement[1], position[2] + movement[0]];
+    let newPosition = [
+      position[0],
+      position[1] + movement[1],
+      position[2] + movement[0],
+    ];
     // set new depth if aim != 0
     if (split[0] === 'forward' && position[2] !== 0) {
-      newPosition[0] = position[0] + movement[1] * position[2]
+      newPosition[0] = position[0] + movement[1] * position[2];
     }
     position = newPosition;
   });
