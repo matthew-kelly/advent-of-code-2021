@@ -1,8 +1,10 @@
 console.clear();
-const day = '4';
+const day = '5';
 let readTextFile;
 if (day === '4') {
   readTextFile = require('./utils/readDay4TextFile');
+} else if (day === '5') {
+  readTextFile = require('./utils/readDay5TextFile');
 } else {
   readTextFile = require('./utils/readTextFile');
 }
